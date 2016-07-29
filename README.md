@@ -23,7 +23,8 @@
     ```gradle
     dependencies {
         compile 'com.github.ybq:Android-SpinKit:1.0.5'
-        compile 'com.github.ybq:nougat-boot-animation:1.0.0'(or download and include the NougatBoot.java in your project)
+        compile 'com.github.ybq:nougat-boot-animation:1.0.0'
+        (or download and include the [NougatBoot.java](https://raw.githubusercontent.com/ybq/nougat-boot-animation/master/library/src/main/java/com/github/ybq/nougatbootanimation/NougatBoot.java) in your project)
      }
     ```
 
