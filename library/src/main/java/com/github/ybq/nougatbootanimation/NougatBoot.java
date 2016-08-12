@@ -34,9 +34,9 @@ public class NougatBoot extends SpriteContainer {
     class Circle extends ShapeSprite {
 
         private int startAngle, endAngle;
-
         private float[] p0, p1, p2, p3, c0, c1, c2, c3, c4, c5, c6, c7;
-
+        private Path path;
+        private int strokeWidth;
 
         public Circle(int color, int startAngle, int endAngle) {
             setColor(color);
@@ -47,6 +47,7 @@ public class NougatBoot extends SpriteContainer {
         @Override
         protected void onBoundsChange(Rect bounds) {
             super.onBoundsChange(bounds);
+            setDrawBounds(clipSquare(bounds));
             int w = getDrawBounds().width();
             int h = getDrawBounds().height();
 
@@ -64,19 +65,21 @@ public class NougatBoot extends SpriteContainer {
             c5 = new float[]{w, h * 3 / 4};
             c6 = new float[]{w * 3 / 4, h};
             c7 = new float[]{w / 8, h};
-        }
 
-        @Override
-        public void drawShape(Canvas canvas, Paint paint) {
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SCREEN));
-            paint.setStrokeWidth(getDrawBounds().width() / 18);
-            paint.setStyle(Paint.Style.STROKE);
-            Path path = new Path();
+            path = new Path();
             path.moveTo(p0[0], p0[1]);
             cubicTo(path, c1, c2, p1);
             cubicTo(path, c3, c4, p2);
             cubicTo(path, c5, c6, p3);
             cubicTo(path, c7, c0, p0);
+            strokeWidth = getDrawBounds().width() / 18;
+        }
+
+        @Override
+        public void drawShape(Canvas canvas, Paint paint) {
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SCREEN));
+            paint.setStrokeWidth(strokeWidth);
+            paint.setStyle(Paint.Style.STROKE);
             canvas.translate(getDrawBounds().left, getDrawBounds().top);
             canvas.drawPath(path, paint);
         }

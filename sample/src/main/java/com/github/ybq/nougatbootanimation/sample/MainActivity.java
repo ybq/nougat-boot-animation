@@ -1,6 +1,5 @@
 package com.github.ybq.nougatbootanimation.sample;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.widget.ProgressBar;
 
 import com.github.ybq.nougatbootanimation.NougatBoot;
 
-import static android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 
 public class MainActivity extends AppCompatActivity {
 
