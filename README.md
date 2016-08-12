@@ -1,5 +1,5 @@
 # nougat-boot-animation
-<!-- Nougat Boot Animation -->
+>Highly imitation of android 7.0 (nougat) boot animation 
 
 ##Effect
 
